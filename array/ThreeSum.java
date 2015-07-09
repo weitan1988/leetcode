@@ -15,21 +15,22 @@ public class ThreeSum {
      * A solution set is:
      * (-1, 0, 1)
      * (-1, -1, 2)
+     * Time Complexity: O(n^2)
      */
     public List<List<Integer>> threeSum(int[] nums) {
-        public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+        public ArrayList<ArrayList<Integer>> threeSum ( int[] num){
             ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-            if(num.length == 0) return res;
+            if (num.length == 0) return res;
             Arrays.sort(num);
             Set<ArrayList<Integer>> resSet = new HashSet<ArrayList<Integer>>();
-            for(int i = 0; i< num.length;i++){
-                int j = i+1;
-                int k = num.length-1;
-                while(j < k){
-                    int sum_two = num[i]+num[j];
-                    if(sum_two + num[k] < 0) j++;
-                    else if(sum_two + num[k] > 0) k--;
-                    else{
+            for (int i = 0; i < num.length; i++) {
+                int j = i + 1;
+                int k = num.length - 1;
+                while (j < k) {
+                    int sum_two = num[i] + num[j];
+                    if (sum_two + num[k] < 0) j++;
+                    else if (sum_two + num[k] > 0) k--;
+                    else {
                         //find one triplet
                         ArrayList<Integer> triplet = new ArrayList<Integer>();
                         triplet.add(0, num[i]);
