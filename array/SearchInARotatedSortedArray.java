@@ -1,4 +1,4 @@
-public class SearchInnumsRotatedSortednumsrray {
+public class SearchInRotatedSortedArray {
     /**
      * @param nums
      * @param target
