@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Solution {
     /**
      * @param candidates
@@ -16,6 +18,26 @@ public class Solution {
      * [2, 2, 3]
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        Arrays.sort(candidates);
+        combinationHelper(candidates, 0, target, new ArrayList<Integer>(), res);
+        return res;
+
+    }
+
+    public void combinationHelper(int[] candidates, int start, int target, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> res) {
+        if (start < 0 || target < 0 || start >= candidates.length)
+            return;
+        if (target == 0) {
+            ArrayList<Integer> result = new ArrayList<Integer>(path);
+            res.add(result);
+        } else {
+            for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
+                path.add(candidates[i]);
+                combinationHelper(candidates, i, target - candidates[i], result, res);
+                path.remove(path.size() - 1);
+            }
+        }
 
     }
 }
